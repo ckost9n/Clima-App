@@ -43,7 +43,7 @@
                                                 <color key="backgroundColor" systemColor="systemFillColor"/>
                                                 <color key="tintColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="go"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="icb-Rv-zL3">
                                                 <rect key="frame" x="334" y="0.0" width="40" height="40"/>
@@ -54,6 +54,9 @@
                                                 <color key="tintColor" systemColor="labelColor"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" image="magnifyingglass" catalog="system"/>
+                                                <connections>
+                                                    <action selector="searchPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Kg-hS-BUr"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -120,6 +123,7 @@
                     <connections>
                         <outlet property="cityLabel" destination="Hql-pp-rpl" id="s6e-EJ-oUt"/>
                         <outlet property="coditionImageView" destination="DsK-If-zZV" id="og9-fy-n65"/>
+                        <outlet property="searchTextField" destination="Zzy-xy-yzf" id="mbk-lW-3gr"/>
                         <outlet property="temperatureLabel" destination="Udh-ru-o7G" id="Ied-co-fv9"/>
                     </connections>
                 </viewController>
