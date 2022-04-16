@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C4C1E3A280A8106003F2FD8 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4C1E39280A8106003F2FD8 /* WeatherModel.swift */; };
 		3C78E72427FC24FC00642A43 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C78E72327FC24FC00642A43 /* AppDelegate.swift */; };
 		3C78E72627FC24FC00642A43 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C78E72527FC24FC00642A43 /* SceneDelegate.swift */; };
 		3C78E72827FC24FC00642A43 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C78E72727FC24FC00642A43 /* WeatherViewController.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3C4C1E39280A8106003F2FD8 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		3C78E72027FC24FC00642A43 /* Clima App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Clima App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C78E72327FC24FC00642A43 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3C78E72527FC24FC00642A43 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 			children = (
 				3CE01C682806F0BE0029099B /* WeatherManager.swift */,
 				3CE01C6A280728780029099B /* WeatherData.swift */,
+				3C4C1E39280A8106003F2FD8 /* WeatherModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -172,6 +175,7 @@
 				3CE01C6B280728780029099B /* WeatherData.swift in Sources */,
 				3C78E72427FC24FC00642A43 /* AppDelegate.swift in Sources */,
 				3CE01C692806F0BF0029099B /* WeatherManager.swift in Sources */,
+				3C4C1E3A280A8106003F2FD8 /* WeatherModel.swift in Sources */,
 				3C78E72627FC24FC00642A43 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
