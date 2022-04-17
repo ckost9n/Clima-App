@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class WeatherViewController: UIViewController {
     
@@ -15,13 +16,13 @@ class WeatherViewController: UIViewController {
     @IBOutlet var searchTextField: UITextField!
     
     private var weatherManager = WeatherManager()
-//    private var weather = WeatherModel?
+    private let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setDelegates()
-        
+        setupLocationSettings()
         
     }
 
@@ -30,20 +31,60 @@ class WeatherViewController: UIViewController {
         print(searchTextField.text ?? #function)
     }
     
+    @IBAction func locationPressed(_ sender: UIButton) {
+        locationManager.requestLocation()
+        
+    }
+    
     private func setDelegates() {
         searchTextField.delegate = self
         weatherManager.delegate = self
+        locationManager.delegate = self
+    }
+    
+    private func setupLocationSettings() {
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestLocation()
     }
 
+}
+
+// MARK: - CLLocationManagerDelegate
+
+extension WeatherViewController: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        guard let location = locations.last else { return }
+        locationManager.stopUpdatingLocation()
+        let lat = location.coordinate.latitude
+        let lon = location.coordinate.longitude
+        
+        weatherManager.fetchWeather(latitide: lat, longitude: lon)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
+    }
+    
 }
 
 // MARK: - WeatherManagerDelegate
 
 extension WeatherViewController: WeatherManagerDelegate {
     
-    func didUpdateWeather(weather: WeatherModel) {
-        print(weather.temperatureString)
+    func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel) {
+        DispatchQueue.main.async {
+            self.temperatureLabel.text = weather.temperatureString
+            self.coditionImageView.image = UIImage(systemName: weather.getConditionName)
+            self.cityLabel.text = weather.cityName
+        }
         
+        
+    }
+    
+    func didFailWithError(error: Error) {
+        print(error)
     }
     
 }
