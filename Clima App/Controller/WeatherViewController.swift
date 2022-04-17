@@ -15,11 +15,13 @@ class WeatherViewController: UIViewController {
     @IBOutlet var searchTextField: UITextField!
     
     private var weatherManager = WeatherManager()
-
+//    private var weather = WeatherModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        searchTextField.delegate = self
+        setDelegates()
+        
         
     }
 
@@ -27,7 +29,23 @@ class WeatherViewController: UIViewController {
         searchTextField.endEditing(true)
         print(searchTextField.text ?? #function)
     }
+    
+    private func setDelegates() {
+        searchTextField.delegate = self
+        weatherManager.delegate = self
+    }
 
+}
+
+// MARK: - WeatherManagerDelegate
+
+extension WeatherViewController: WeatherManagerDelegate {
+    
+    func didUpdateWeather(weather: WeatherModel) {
+        print(weather.temperatureString)
+        
+    }
+    
 }
 
 // MARK: - UITextFieldDelegate
